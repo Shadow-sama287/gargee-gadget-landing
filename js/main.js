@@ -123,6 +123,10 @@ const cursor = document.getElementById('cursor');
 const cursorFollower = document.getElementById('cursorFollower');
 
 if (cursor && cursorFollower && window.innerWidth > 768) {
+    // Inject label inside cursor
+    cursor.innerHTML = '<span class="cursor-label" id="cursorLabel"></span>';
+    const cursorLabel = document.getElementById('cursorLabel');
+
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
     let followerX = 0, followerY = 0;
@@ -137,7 +141,12 @@ if (cursor && cursorFollower && window.innerWidth > 768) {
         cursorY += (mouseY - cursorY) * 0.2;
         followerX += (mouseX - followerX) * 0.08;
         followerY += (mouseY - followerY) * 0.08;
-        gsap.set(cursor, { x: cursorX - 4, y: cursorY - 4 });
+        
+        // Offset based on cursor dimensions (changes when expanded)
+        const isExpanded = cursor.classList.contains('play') || cursor.classList.contains('choose');
+        const cOffset = isExpanded ? 32 : 4;
+        
+        gsap.set(cursor, { x: cursorX - cOffset, y: cursorY - cOffset });
         gsap.set(cursorFollower, { x: followerX - 18, y: followerY - 18 });
     });
 
@@ -152,6 +161,29 @@ if (cursor && cursorFollower && window.innerWidth > 768) {
             cursorFollower.classList.remove('hover');
         });
     });
+
+    // Special Hover States
+    document.querySelectorAll('.tarot-card-wrapper').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('choose');
+            if (cursorLabel) cursorLabel.textContent = 'Flip';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('choose');
+            if (cursorLabel) cursorLabel.textContent = '';
+        });
+    });
+
+    document.querySelectorAll('.media-placeholder, .media-play-btn').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('play');
+            if (cursorLabel) cursorLabel.textContent = 'Play';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('play');
+            if (cursorLabel) cursorLabel.textContent = '';
+        });
+    });
 }
 
 // ========== NAVBAR ==========
@@ -159,23 +191,27 @@ const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
-});
+}
+
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
 
 // ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -194,6 +230,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // HERO ANIMATIONS — Kinetic Character Split
 // ==========================================
 
+if (document.querySelector('.hero-title')) {
 const heroTl = gsap.timeline({
     defaults: { ease: 'power4.out' },
     delay: 0.3,
@@ -221,7 +258,9 @@ heroTl
     .from('.hero-buttons .btn', { y: 30, opacity: 0, duration: 0.8, stagger: 0.15 }, '-=0.6')
     .from('.hero-scroll-indicator', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
 
-// ========== HERO PARALLAX ==========
+} // end hero animations
+
+if (document.querySelector('.hero')) {
 
 // Background gradient layer — moves slower (depth)
 gsap.to('.parallax-gradient', {
@@ -276,6 +315,8 @@ gsap.to('.hero-content', {
     ease: 'none',
 });
 
+} // end hero parallax
+
 // ==============================================
 // SCROLL-TRIGGERED ANIMATIONS — Reliable
 // ==============================================
@@ -300,7 +341,6 @@ document.querySelectorAll('.reveal-text').forEach(el => {
 // --- Section Title Word Reveals ---
 document.querySelectorAll('.split-words').forEach(el => {
     const words = splitTextIntoWords(el);
-    // word-inner starts at translateY(110%) via CSS
     ScrollTrigger.create({
         trigger: el,
         start: 'top 90%',
@@ -308,9 +348,9 @@ document.querySelectorAll('.split-words').forEach(el => {
         onEnter: () => {
             gsap.to(words, {
                 y: 0,
-                duration: 0.9,
-                stagger: 0.06,
-                ease: 'power4.out',
+                duration: 1.0,
+                stagger: 0.07,
+                ease: 'back.out(2)',
             });
         },
     });
@@ -506,71 +546,24 @@ if (window.innerWidth > 768) {
 // ========== WHATSAPP FLOAT ==========
 
 const whatsappFloat = document.querySelector('.whatsapp-float');
-gsap.set(whatsappFloat, { scale: 0, opacity: 0 });
-
-ScrollTrigger.create({
-    trigger: '.about',
-    start: 'top 80%',
-    once: true,
-    onEnter: () => {
-        gsap.to(whatsappFloat, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' });
-    },
-});
-
-// ========== CONTACT FORM HANDLING ==========
-
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-
-    if (!data.name || !data.email || !data.service || !data.message) {
-        showFormMessage('Please fill in all required fields.', 'error');
-        return;
+if (whatsappFloat) {
+    gsap.set(whatsappFloat, { scale: 0, opacity: 0 });
+    const waTrigger = document.querySelector('.about') || document.querySelector('.hero');
+    if (waTrigger) {
+        ScrollTrigger.create({
+            trigger: waTrigger,
+            start: 'top 80%',
+            once: true,
+            onEnter: () => {
+                gsap.to(whatsappFloat, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' });
+            },
+        });
+    } else {
+        gsap.set(whatsappFloat, { scale: 1, opacity: 1 });
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        showFormMessage('Please enter a valid email address.', 'error');
-        return;
-    }
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-        showFormMessage('Thank you! Your message has been sent. Dr. Gargee will get back to you soon.', 'success');
-        contactForm.reset();
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-    }, 1500);
-});
-
-function showFormMessage(message, type) {
-    const existing = document.querySelector('.form-message');
-    if (existing) existing.remove();
-
-    const msgEl = document.createElement('div');
-    msgEl.className = `form-message form-message-${type}`;
-    msgEl.textContent = message;
-    msgEl.style.cssText = `
-        padding: 14px 20px; border-radius: 8px; margin-top: 16px; font-size: 0.95rem;
-        ${type === 'success'
-            ? 'background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7;'
-            : 'background: #FFEBEE; color: #C62828; border: 1px solid #EF9A9A;'}
-    `;
-    contactForm.appendChild(msgEl);
-    gsap.from(msgEl, { y: 10, opacity: 0, duration: 0.4, ease: 'power3.out' });
-
-    setTimeout(() => {
-        if (msgEl.parentNode) {
-            gsap.to(msgEl, { opacity: 0, y: -10, duration: 0.3, onComplete: () => msgEl.remove() });
-        }
-    }, 5000);
 }
+
+// Contact form handled in contact-form.js on contact page
 
 // ========== HOVER SCRAMBLE EFFECT ON SERVICE CARD TITLES ==========
 
@@ -685,62 +678,47 @@ if (refreshBtn && affirmationText) {
     });
 }
 
-// 3. INTERACTIVE 3D TAROT CARD FLIPS & READING REVEAL
+// 3. TAROT CARD INTERACTION
 const tarotCards = document.querySelectorAll('.tarot-card-wrapper');
 const tarotReveal = document.getElementById('tarotReveal');
 const readingTitle = document.getElementById('readingTitle');
 const readingText = document.getElementById('readingText');
 
-const tarotReadings = {
-    star: {
-        title: "The Star — Hope & Healing",
-        text: "A beautiful symbol of renewed hope and spiritual recovery. The Star suggests you are entering a period of gentle healing, peace, and clarity. It asks you to trust that the universe is guiding you, letting you release past weights so your light can shine once more."
-    },
-    sun: {
-        title: "The Sun — Clarity & Vitality",
-        text: "The Sun brings warmth, success, and clear understanding. It suggests positive energy, truth, and growth are surrounding you. Any lingering clouds of doubt are dissolving. Embrace the present moment with a joyful, playful, and open heart."
-    },
-    empress: {
-        title: "The Empress — Nurturing & Abundance",
-        text: "Representing mother nature, self-care, and creative growth. The Empress invites you to connect with your senses, practice kindness toward yourself, and nurture your inner child. It is a sign of abundance, showing that what you plant now is growing beautifully."
-    }
+const tarotReadings = typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG.tarotCards : {
+    star: { title: "The Star — Hope & Healing", text: "...", prompt: "" },
+    sun: { title: "The Sun — Clarity & Vitality", text: "...", prompt: "" },
+    empress: { title: "The Empress — Nurturing & Abundance", text: "...", prompt: "" },
 };
 
-tarotCards.forEach(cardWrapper => {
+tarotCards.forEach((cardWrapper) => {
     cardWrapper.addEventListener('click', () => {
         const cardKey = cardWrapper.getAttribute('data-card');
         const reading = tarotReadings[cardKey];
-
         if (!reading) return;
 
-        // If card is already flipped, we flip it back
+        // Toggle flip
+        cardWrapper.classList.toggle('flipped');
+
+        // Show reading if flipped
         if (cardWrapper.classList.contains('flipped')) {
-            cardWrapper.classList.remove('flipped');
-            gsap.to(tarotReveal, { opacity: 0, y: 15, duration: 0.4, onComplete: () => tarotReveal.classList.remove('show') });
-            return;
+            if (readingTitle) readingTitle.textContent = reading.title;
+            if (readingText) readingText.textContent = reading.text;
+
+            const promptEl = document.getElementById('tarotJournalPrompt');
+            const promptText = document.getElementById('tarotPromptText');
+            if (promptEl && promptText && reading.prompt) {
+                promptText.textContent = reading.prompt;
+                promptEl.style.display = 'block';
+            }
+
+            if (tarotReveal) {
+                tarotReveal.classList.add('show');
+            }
+        } else {
+            if (tarotReveal) {
+                tarotReveal.classList.remove('show');
+            }
         }
-
-        // Unflip all cards first
-        tarotCards.forEach(c => c.classList.remove('flipped'));
-
-        // Flip this card
-        cardWrapper.classList.add('flipped');
-
-        // Populate and animate the reading box with a kinetic surprise pop
-        readingTitle.textContent = reading.title;
-        readingText.textContent = reading.text;
-        
-        tarotReveal.classList.add('show');
-        gsap.killTweensOf(tarotReveal);
-        gsap.fromTo(tarotReveal, 
-            { opacity: 0, y: 30, scale: 0.95 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.4)' }
-        );
-        
-        // Scroll slightly to the reading box so it's fully visible
-        setTimeout(() => {
-            tarotReveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 150);
     });
 });
 
@@ -855,3 +833,41 @@ if (window.innerWidth > 768) {
 window.addEventListener('load', () => {
     ScrollTrigger.refresh();
 });
+
+// ========== HORIZONTAL STEPS SCROLL ==========
+(function initStepsScroll() {
+    const stepsGrid = document.getElementById('stepsGrid');
+    const indicators = document.getElementById('stepsIndicators');
+    
+    if (!stepsGrid || !indicators) return;
+
+    const stepCards = stepsGrid.querySelectorAll('.step-card');
+    const indicatorDots = indicators.querySelectorAll('.step-indicator');
+
+    // Update active indicator on scroll
+    stepsGrid.addEventListener('scroll', () => {
+        const scrollLeft = stepsGrid.scrollLeft;
+        const cardWidth = stepCards[0].offsetWidth;
+        const gap = 24;
+        const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+        
+        indicatorDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+        });
+    });
+
+    // Click on indicator to scroll to that step
+    indicatorDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            const cardWidth = stepCards[0].offsetWidth;
+            const gap = 24;
+            const scrollPosition = index * (cardWidth + gap);
+            
+            stepsGrid.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+})();
+

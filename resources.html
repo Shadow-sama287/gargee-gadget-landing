@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources — Dr. Gargee Gadgil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/features.css">
+</head>
+<body class="theme-sage">
+    <div id="site-cursor"></div>
+    <div id="site-nav"></div>
+
+    <section class="page-hero compact">
+        <div class="container">
+            <span class="section-label">Resources</span>
+            <h1 class="section-title">Grounding & Support</h1>
+            <p class="section-subtitle">Free tools to help you breathe, centre, and find calm — right now.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div id="groundingToolkit">
+                <div class="toolkit-tabs">
+                    <button type="button" class="toolkit-tab active" data-tool="478">4-7-8 Breathing</button>
+                    <button type="button" class="toolkit-tab" data-tool="box">Box Breathing</button>
+                    <button type="button" class="toolkit-tab" data-tool="54321">5-4-3-2-1 Grounding</button>
+                    <button type="button" class="toolkit-tab" data-tool="body">Body Scan</button>
+                </div>
+
+                <div class="toolkit-panel active" id="panel-478">
+                    <div class="breathing-guide-wrapper" style="margin:0 auto 24px;">
+                        <div class="breathing-circle-outer">
+                            <div class="breathing-circle-inner" id="breathingCircle478" style="width:80px;height:80px;margin:0 auto;border-radius:50%;background:var(--primary);"></div>
+                        </div>
+                        <p id="instruction478" style="margin:16px 0 8px;color:var(--text-light);">Press start when ready</p>
+                        <p id="timer478" style="font-size:1.2rem;color:var(--secondary);margin-bottom:16px;"></p>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="toggle478">Start 4-7-8 Breathing</button>
+                    <p class="toolkit-instructions" style="margin-top:24px;">Inhale 4 seconds · Hold 7 seconds · Exhale 8 seconds. Used to calm the nervous system.</p>
+                </div>
+
+                <div class="toolkit-panel" id="panel-box">
+                    <div style="margin:0 auto 24px;">
+                        <div id="breathingCircleBox" style="width:80px;height:80px;margin:0 auto;border-radius:50%;background:var(--primary);"></div>
+                        <p id="instructionBox" style="margin:16px 0 8px;color:var(--text-light);">Press start when ready</p>
+                        <p id="timerBox" style="font-size:1.2rem;color:var(--secondary);margin-bottom:16px;"></p>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="toggleBox">Start Box Breathing</button>
+                    <p class="toolkit-instructions" style="margin-top:24px;">Inhale 4 · Hold 4 · Exhale 4 · Hold 4. Repeat.</p>
+                </div>
+
+                <div class="toolkit-panel" id="panel-54321">
+                    <p class="toolkit-instructions">When overwhelmed, name:</p>
+                    <ol class="toolkit-steps">
+                        <li><strong>5</strong> things you can see</li>
+                        <li><strong>4</strong> things you can touch</li>
+                        <li><strong>3</strong> things you can hear</li>
+                        <li><strong>2</strong> things you can smell</li>
+                        <li><strong>1</strong> thing you can taste</li>
+                    </ol>
+                    <p class="toolkit-instructions">This brings attention to the present moment and away from spiralling thoughts.</p>
+                </div>
+
+                <div class="toolkit-panel" id="panel-body">
+                    <p class="toolkit-instructions">A simple 5-minute body scan:</p>
+                    <ol class="toolkit-steps">
+                        <li>Lie down or sit comfortably. Close your eyes if safe to do so.</li>
+                        <li>Bring attention to your feet. Notice any sensation without changing it.</li>
+                        <li>Slowly move attention up: legs, belly, chest, hands, shoulders, face.</li>
+                        <li>Where you notice tension, breathe into that area and soften on the exhale.</li>
+                        <li>When ready, open your eyes and notice how you feel.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:48px;">
+                <p style="color:var(--text-light);margin-bottom:16px;">If these tools helped, a session can help you go deeper.</p>
+                <a href="contact.html" class="btn btn-primary">Book a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container content-block">
+            <h2 class="section-title" style="text-align:center;margin-bottom:24px;">Crisis Support</h2>
+            <p style="text-align:center;margin-bottom:32px;"><strong>This website is not for emergencies.</strong> If you or someone you know is in crisis, please contact:</p>
+            <ul class="content-list" style="max-width:480px;margin:0 auto;">
+                <li><strong>Vandrevala Foundation:</strong> 1860-2662-345 / 1800-2333-330</li>
+                <li><strong>iCall (TISS):</strong> 9152987821</li>
+                <li><strong>National Tele MANAS:</strong> 14416</li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script>initLayout();</script>
+    <script src="js/grounding-toolkit.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

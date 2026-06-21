@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Book — Dr. Gargee Gadgil</title>
+    <meta name="description" content="Book a session with Dr. Gargee Gadgil via WhatsApp or the contact form. Online sessions. Payment via UPI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/features.css">
+</head>
+<body class="theme-lavender">
+    <div id="site-cursor"></div>
+    <div id="site-nav"></div>
+
+    <section class="page-hero compact">
+        <div class="container">
+            <span class="section-label reveal-text">Contact</span>
+            <h1 class="section-title split-words">Begin Your <em>Journey</em></h1>
+            <p class="section-subtitle reveal-up">Reach out via the form or WhatsApp. Dr. Gargee will respond within 24–48 hours.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="booking-steps">
+                <div class="booking-step">
+                    <div class="booking-step-num">1</div>
+                    <h4>Reach Out</h4>
+                    <p>Send a message via form or WhatsApp with your chosen service.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">2</div>
+                    <h4>Confirm Session</h4>
+                    <p>Dr. Gargee will reply with available times and session details.</p>
+                </div>
+                <div class="booking-step">
+                    <div class="booking-step-num">3</div>
+                    <h4>Pay via UPI</h4>
+                    <p>After confirmation, pay using the UPI QR code below.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="reveal-up">Sessions are currently offered online. <span class="tbc-badge">Format TBC</span></p>
+                    <div class="contact-details reveal-up">
+                        <div class="contact-item">
+                            <span>✉</span>
+                            <span>contact@drgargee.com <span class="tbc-badge">TBC</span></span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>+91 XXXXX XXXXX <span class="tbc-badge">TBC</span></span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Pune, Maharashtra, India <span class="tbc-badge">TBC</span></span>
+                        </div>
+                    </div>
+                    <a href="#" id="whatsappDirect" class="whatsapp-btn magnetic" target="_blank" rel="noopener">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+                <div class="contact-form-wrapper reveal-up">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="trauma-healing">Trauma Healing</option>
+                                <option value="child-healing">Child Healing</option>
+                                <option value="tarot-reading">Tarot Reading</option>
+                                <option value="parenting-guidance">Parenting Guidance</option>
+                                <option value="career-counselling">Career Counselling</option>
+                                <option value="holistic-wellness">Holistic Wellness</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell us about your concerns..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full magnetic">Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="payment">
+        <div class="container">
+            <div class="payment-section">
+                <h3>Payment via UPI</h3>
+                <p>After your session is confirmed, you can pay using UPI. Scan the QR code or use the UPI ID below.</p>
+                <img src="img/upi-qr-placeholder.svg" alt="UPI QR Code — Placeholder" class="upi-qr" id="upiQr">
+                <div class="upi-id">[TBC] — UPI ID to be added</div>
+                <p class="payment-note">Replace this placeholder QR with Dr. Gargee's real UPI QR code when provided.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script>initLayout();</script>
+    <script>
+        document.getElementById('whatsappDirect').href = buildWhatsAppUrl();
+    </script>
+    <script src="js/contact-form.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

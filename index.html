@@ -9,57 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/features.css">
 </head>
-<body>
+<body class="theme-lavender">
 
-    <!-- ========== CUSTOM CURSOR ========== -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
-
-    <!-- ========== NAVIGATION ========== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-text">Dr. Gargee Gadgil</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="hover-text" data-text="About">About</a></li>
-                <li><a href="#services" class="hover-text" data-text="Services">Services</a></li>
-                <li><a href="#approach" class="hover-text" data-text="Approach">Approach</a></li>
-                <li><a href="#testimonials" class="hover-text" data-text="Testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="nav-cta">Contact</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <ul class="mobile-nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-social">
-                <a href="#" aria-label="Facebook">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-            </div>
-        </div>
-    </div>
+    <div id="site-cursor"></div>
+    <div id="site-nav"></div>
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="hero">
@@ -82,10 +37,9 @@
                 <span class="title-line">Healing Begins</span>
                 <span class="title-line title-accent">Within <em>You</em></span>
             </h1>
-            <p class="hero-subtitle">
-                A safe, compassionate space for transformation. Dr. Gargee Gadgil guides you through
-                trauma healing, inner child work, tarot insights, and holistic wellness —
-                helping you reclaim your peace and purpose.
+            <p class="hero-subtitle" id="heroMoodLine">A safe, compassionate space for transformation.</p>
+            <p class="hero-subtitle" id="heroMoodSub" style="margin-top:-12px;font-size:1rem;">
+                Dr. Gargee Gadgil guides you through trauma healing, inner child work, tarot reflection, and holistic wellness — helping you reclaim your peace and purpose.
             </p>
 
             <!-- Daily Affirmation Card -->
@@ -100,8 +54,8 @@
             </div>
 
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary magnetic">Book a Session</a>
-                <a href="#services" class="btn btn-secondary magnetic">Explore Services</a>
+                <a href="contact.html" class="btn btn-primary magnetic">Book a Session</a>
+                <a href="services.html#path-finder" class="btn btn-secondary magnetic">Find Your Path</a>
             </div>
         </div>
         <div class="hero-scroll-indicator">
@@ -144,6 +98,49 @@
         </div>
     </div>
 
+    <!-- ========== CREDENTIALS STRIP ========== -->
+    <section class="credentials-strip">
+        <div class="container">
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <strong>Education</strong>
+                    <span class="credential-placeholder">[TBC]</span>
+                </div>
+                <div class="credential-item">
+                    <strong>Certifications</strong>
+                    <span class="credential-placeholder">[TBC]</span>
+                </div>
+                <div class="credential-item">
+                    <strong>Format</strong>
+                    Online sessions <span class="tbc-badge">TBC</span>
+                </div>
+                <div class="credential-item">
+                    <strong>Based in</strong>
+                    Pune, Maharashtra
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VOICE / MEDIA PLACEHOLDER ========== -->
+    <section class="section" style="padding-top:60px;padding-bottom:60px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">A Minute With Dr. Gargee</span>
+                <h2 class="section-title">Hear Her Voice</h2>
+            </div>
+            <div class="media-placeholder" id="mediaPlaceholder">
+                <div class="media-placeholder-inner">
+                    <button type="button" class="media-play-btn" aria-label="Play intro video">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <p>Intro video coming soon</p>
+                    <small>Placeholder — replace with Dr. Gargee's video when available</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== ABOUT SECTION ========== -->
     <section class="about section" id="about">
         <div class="container">
@@ -169,18 +166,19 @@
                     </p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+</span>
-                            <span class="stat-label">Lives Transformed</span>
+                            <span class="stat-label">Holistic Practice</span>
+                            <span class="stat-label" style="font-size:0.85rem;margin-top:4px;">Pune · Online <span class="tbc-badge">TBC</span></span>
                         </div>
                         <div class="stat">
                             <span class="stat-number" data-count="6">0</span><span class="stat-suffix">+</span>
                             <span class="stat-label">Healing Modalities</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-count="10">0</span><span class="stat-suffix">+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-label">Experience</span>
+                            <span class="stat-label" style="font-size:0.85rem;margin-top:4px;">[TBC] years</span>
                         </div>
                     </div>
+                    <a href="about.html" class="btn btn-secondary magnetic reveal-up" style="margin-top:24px;">Read Her Story</a>
                 </div>
             </div>
         </div>
@@ -193,8 +191,8 @@
                 <span class="section-label reveal-text">How It Works</span>
                 <h2 class="section-title split-words">A Few Steps to <em>Begin</em></h2>
             </div>
-            <div class="steps-grid">
-                <div class="step-card reveal-card">
+            <div class="steps-grid" id="stepsGrid">
+                <div class="step-card reveal-card" data-step="0">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
@@ -205,7 +203,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="step-card reveal-card">
+                <div class="step-card reveal-card" data-step="1">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
@@ -216,7 +214,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="step-card reveal-card">
+                <div class="step-card reveal-card" data-step="2">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
                     </div>
@@ -224,6 +222,11 @@
                     <h3>Start Healing</h3>
                     <p>Begin your transformative journey with personalised sessions designed to bring lasting change.</p>
                 </div>
+            </div>
+            <div class="steps-indicators" id="stepsIndicators">
+                <div class="step-indicator active" data-step="0"></div>
+                <div class="step-indicator" data-step="1"></div>
+                <div class="step-indicator" data-step="2"></div>
             </div>
         </div>
     </section>
@@ -271,68 +274,68 @@
                 <p class="section-subtitle reveal-up">Each healing modality is designed to address different aspects of your well-being, creating a comprehensive approach to transformation.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="trauma-healing">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
                     <h3>Trauma Healing</h3>
                     <p>Release deep-seated emotional wounds and reclaim your inner peace. Through gentle, evidence-based techniques, we work together to process and heal from past experiences.</p>
-                    <a href="#contact" class="service-link">
+                    <a href="services/trauma-healing.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="child-healing">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
                     </div>
                     <h3>Child Healing</h3>
                     <p>Nurturing therapeutic support for children facing emotional or behavioural challenges. Creating a safe space where young minds can express, process, and grow.</p>
-                    <a href="#contact" class="service-link">
+                    <a href="services/child-healing.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="tarot-reading">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
                     <h3>Tarot Reading</h3>
-                    <p>Gain clarity and insight through intuitive tarot guidance. Uncover hidden patterns, explore possibilities, and find direction for life's most pressing questions.</p>
-                    <a href="#contact" class="service-link">
+                    <p>Reflective tarot guidance — a mirror for patterns and possibilities, not fortune-telling.</p>
+                    <a href="services/tarot-reading.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="parenting-guidance">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     </div>
                     <h3>Parenting Guidance</h3>
                     <p>Navigate the beautiful complexities of parenthood with expert guidance. Build stronger connections with your children and foster a nurturing family environment.</p>
-                    <a href="#contact" class="service-link">
+                    <a href="services/parenting-guidance.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="career-counselling">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                     </div>
                     <h3>Career Counselling</h3>
                     <p>Discover your true professional calling and overcome career-related stress. Align your work life with your inner purpose for lasting fulfilment and success.</p>
-                    <a href="#contact" class="service-link">
+                    <a href="services/career-counselling.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="service-card reveal-card">
+                <div class="service-card reveal-card" data-service="holistic-wellness">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                     </div>
                     <h3>Holistic Wellness</h3>
                     <p>An integrative approach that treats mind, body, and spirit as one. Combining multiple healing modalities for complete well-being and lasting transformation.</p>
-                    <a href="#contact" class="service-link">
+                    <a href="services/holistic-wellness.html" class="service-link">
                         Learn More
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -347,8 +350,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label reveal-text">Interactive Experience</span>
-                <h2 class="section-title split-words">Seek Your <em>Daily Guidance</em></h2>
-                <p class="section-subtitle reveal-up">Focus on a question or area of your life, select a card, and click to reveal its soothing wisdom.</p>
+                <h2 class="section-title split-words">Card as <em>Mirror</em></h2>
+                <p class="section-subtitle reveal-up">Reflection, not prediction. Focus on a question, choose a card, and explore its meaning for your life.</p>
             </div>
             
             <div class="tarot-cards-container">
@@ -402,7 +405,12 @@
             <div class="tarot-reading-reveal" id="tarotReveal">
                 <div class="reading-content-box">
                     <h3 class="reading-card-title" id="readingTitle">Choose a card to begin your reading</h3>
-                    <p class="reading-card-text" id="readingText">Take a deep breath. Focus on your heart, choose the card you feel drawn to, and uncover its message.</p>
+                    <p class="reading-card-text" id="readingText">Take a deep breath. Hold a question in your mind. Choose the card you feel drawn to.</p>
+                </div>
+                <div class="tarot-journal-prompt" id="tarotJournalPrompt" style="display:none;">
+                    <label for="tarotJournal">Reflection prompt:</label>
+                    <p id="tarotPromptText" style="color:var(--text-light);margin-bottom:8px;"></p>
+                    <textarea id="tarotJournal" placeholder="Write your thoughts here (saved locally in your browser)..."></textarea>
                 </div>
             </div>
         </div>
@@ -445,7 +453,7 @@
                         By weaving together multiple therapeutic modalities, I create a personalised healing
                         journey that honours your unique story and empowers lasting transformation.
                     </p>
-                    <a href="#contact" class="btn btn-primary magnetic reveal-up">Start Your Journey</a>
+                    <a href="contact.html" class="btn btn-primary magnetic reveal-up">Start Your Journey</a>
                 </div>
             </div>
         </div>
@@ -514,129 +522,61 @@
         </div>
     </section>
 
-    <!-- ========== CONTACT SECTION ========== -->
-    <section class="contact section" id="contact">
+    <!-- ========== JOURNAL PREVIEW ========== -->
+    <section class="section">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <span class="section-label reveal-text">Get in Touch</span>
-                    <h2 class="section-title split-words">Begin Your <em>Healing</em> Journey</h2>
-                    <p class="reveal-up">Take the first step towards transformation. Reach out through the form or connect directly via WhatsApp for a free initial consultation.</p>
-
-                    <div class="contact-details reveal-up">
-                        <div class="contact-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span>contact@drgargee.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span>+91 98765 43210</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span>Pune, Maharashtra, India</span>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/919876543210?text=Hi%20Dr.%20Gargee,%20I%20would%20like%20to%20book%20a%20session." class="whatsapp-btn magnetic" target="_blank" rel="noopener">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Chat on WhatsApp
-                    </a>
-                </div>
-                <div class="contact-form-wrapper reveal-up">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <select id="service" name="service" required>
-                                <option value="" disabled selected>Select a Service</option>
-                                <option value="trauma-healing">Trauma Healing</option>
-                                <option value="child-healing">Child Healing</option>
-                                <option value="tarot-reading">Tarot Reading</option>
-                                <option value="parenting">Parenting Guidance</option>
-                                <option value="career-counselling">Career Counselling</option>
-                                <option value="holistic-wellness">Holistic Wellness</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tell us about your concerns..." rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full magnetic">Send Message</button>
-                    </form>
-                </div>
+            <div class="section-header">
+                <span class="section-label reveal-text">Journal</span>
+                <h2 class="section-title split-words">Insights & <em>Reflections</em></h2>
+            </div>
+            <div class="journal-grid">
+                <article class="journal-card reveal-card">
+                    <div class="journal-meta">6 min read</div>
+                    <h3>Inner Child Work — What It Actually Means</h3>
+                    <p>Meeting the parts of you that learned to survive — and offering them what they needed.</p>
+                    <a href="journal/inner-child-work.html" class="journal-link">Read →</a>
+                </article>
+                <article class="journal-card reveal-card">
+                    <div class="journal-meta">5 min read</div>
+                    <h3>Tarot as Reflection, Not Fortune-Telling</h3>
+                    <p>How tarot works in a grounded, therapeutic practice.</p>
+                    <a href="journal/tarot-as-reflection.html" class="journal-link">Read →</a>
+                </article>
+            </div>
+            <div style="text-align:center;margin-top:32px;">
+                <a href="journal/index.html" class="btn btn-secondary">All Articles</a>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <span class="logo-text">Dr. Gargee Gadgil</span>
-                    <p>Holistic healing for mind, body, and spirit. Your journey to wellness begins here.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#approach">Our Approach</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Trauma Healing</a></li>
-                        <li><a href="#services">Child Healing</a></li>
-                        <li><a href="#services">Tarot Reading</a></li>
-                        <li><a href="#services">Parenting Guidance</a></li>
-                        <li><a href="#services">Career Counselling</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>contact@drgargee.com</li>
-                        <li>+91 98765 43210</li>
-                        <li>Pune, Maharashtra</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Dr. Gargee Gadgil. All rights reserved.</p>
-            </div>
+    <!-- ========== CONTACT CTA ========== -->
+    <section class="contact section" id="contact">
+        <div class="container" style="text-align:center;">
+            <span class="section-label reveal-text">Get in Touch</span>
+            <h2 class="section-title split-words">Begin Your <em>Healing</em> Journey</h2>
+            <p class="section-subtitle reveal-up" style="margin-bottom:32px;">Book via WhatsApp or the contact form. Pay securely via UPI after confirmation.</p>
+            <a href="contact.html" class="btn btn-primary magnetic">Contact & Book</a>
+            <a href="first-session.html" class="btn btn-secondary magnetic">What to Expect</a>
         </div>
-    </footer>
+    </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919876543210?text=Hi%20Dr.%20Gargee,%20I%20would%20like%20to%20book%20a%20session." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+    <div id="site-footer"></div>
 
-    <!-- GSAP + ScrollTrigger CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script>initLayout();</script>
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('mediaPlaceholder')?.querySelector('.media-play-btn')?.addEventListener('click', () => {
+            alert('Video coming soon — replace with Dr. Gargee\'s intro video when available.');
+        });
+        document.getElementById('tarotJournal')?.addEventListener('input', (e) => {
+            localStorage.setItem('gargee_tarot_journal', e.target.value);
+        });
+        const saved = localStorage.getItem('gargee_tarot_journal');
+        if (saved && document.getElementById('tarotJournal')) document.getElementById('tarotJournal').value = saved;
+    </script>
 </body>
 </html>
