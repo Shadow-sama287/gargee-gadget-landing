@@ -32,65 +32,34 @@
             <div class="shape shape-6" data-speed="0.3"></div>
         </div>
         
-        <!-- Centered Meditating SVG Figure -->
+        <!-- Centered Meditating Figure & Aura -->
         <div class="hero-meditating-art">
-            <svg class="meditating-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <svg class="meditating-aura-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                 <!-- Glowing background aura rings (breathing) -->
-                <circle class="aura-ring aura-ring-1" cx="200" cy="210" r="130" />
-                <circle class="aura-ring aura-ring-2" cx="200" cy="210" r="90" />
-                <circle class="aura-ring aura-ring-3" cx="200" cy="210" r="50" />
-                
-                <g class="meditating-figure">
-                    <!-- Head -->
-                    <circle class="figure-head" cx="200" cy="115" r="22" />
-                    
-                    <!-- Neck and Torso -->
-                    <path class="figure-torso" d="M200,137 C200,160 215,200 215,250 C215,270 205,280 200,280 C195,280 185,270 185,250 C185,200 200,137 200,137 Z" />
-                    
-                    <!-- Left arm/hand resting on knee -->
-                    <path class="figure-arm-left" d="M190,155 C160,175 140,210 140,245 C140,265 155,270 165,270" />
-                    
-                    <!-- Right arm/hand resting on knee -->
-                    <path class="figure-arm-right" d="M210,155 C240,175 260,210 260,245 C260,265 245,270 235,270" />
-                    
-                    <!-- Left Leg (Lotus pose) -->
-                    <path class="figure-leg-left" d="M185,260 C150,265 110,275 110,290 C110,310 170,310 200,310" />
-                    
-                    <!-- Right Leg (Lotus pose) -->
-                    <path class="figure-leg-right" d="M215,260 C250,265 290,275 290,290 C290,310 230,310 200,310" />
-
-                    <!-- Glowing chakras -->
-                    <circle class="chakra-dot crown" cx="200" cy="98" r="3.5" />
-                    <circle class="chakra-dot third-eye" cx="200" cy="115" r="4.5" />
-                    <circle class="chakra-dot throat" cx="200" cy="142" r="4" />
-                    <circle class="chakra-dot heart" cx="200" cy="180" r="5" />
-                    <circle class="chakra-dot solar" cx="200" cy="215" r="5" />
-                    <circle class="chakra-dot sacral" cx="200" cy="250" r="4.5" />
-                    <circle class="chakra-dot root" cx="200" cy="275" r="4" />
-                </g>
+                <circle class="aura-ring aura-ring-1" cx="200" cy="200" r="130" />
+                <circle class="aura-ring aura-ring-2" cx="200" cy="200" r="90" />
+                <circle class="aura-ring aura-ring-3" cx="200" cy="200" r="50" />
             </svg>
+            <img src="img/mneditaing-guy.png" alt="Meditating Healer" class="meditating-png">
+        </div>
+
+        <!-- Hero Badge (Positioned at the very top below navbar) -->
+        <div class="hero-badge-container">
+            <div class="hero-badge">Holistic Healing</div>
         </div>
 
         <div class="container hero-content">
-            <div class="hero-badge">Holistic Healing</div>
             <h1 class="hero-title split-chars">
                 <span class="title-line">Healing Begins</span>
                 <span class="title-line title-accent">With <em>You</em></span>
             </h1>
-            <p class="hero-subtitle" id="heroMoodLine">A safe, compassionate space for transformation.</p>
-            <p class="hero-subtitle" id="heroMoodSub" style="margin-top:-12px;font-size:1rem;">
-                Dr. Gargee Gadgil guides you through trauma healing, inner child work, tarot reflection, and holistic wellness — helping you reclaim your peace and purpose.
-            </p>
         </div>
 
         <!-- Daily Affirmation Card (Positioned at bottom) -->
-        <div class="affirmation-container reveal-up">
+        <div class="affirmation-container reveal-up" id="refreshAffirmation" role="button" aria-label="New Affirmation">
             <div class="affirmation-card">
                 <span class="affirmation-label">Daily Affirmation</span>
                 <p class="affirmation-text" id="affirmationText">"I am worthy of peace, healing, and a quiet mind."</p>
-                <button class="affirmation-refresh-btn magnetic" id="refreshAffirmation" aria-label="New Affirmation">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                </button>
             </div>
         </div>
     </section>
@@ -222,8 +191,8 @@
                 <span class="section-label reveal-text">How It Works</span>
                 <h2 class="section-title split-words">A Few Steps to <em>Begin</em></h2>
             </div>
-            <div class="steps-grid" id="stepsGrid">
-                <div class="step-card reveal-card" data-step="0">
+            <div class="steps-stack-container" id="stepsStack">
+                <div class="step-card" data-step="0">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
@@ -234,7 +203,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="step-card reveal-card" data-step="1">
+                <div class="step-card" data-step="1">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
@@ -245,7 +214,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="step-card reveal-card" data-step="2">
+                <div class="step-card" data-step="2">
                     <div class="step-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
                     </div>
@@ -394,6 +363,12 @@
                     <div class="speech-bubble bubble-counselor">"Let's explore this together, at your pace."</div>
                     <div class="speech-bubble bubble-child">"I feel safe here."</div>
                 </div>
+                <div class="child-emotion-selector" style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; width: 100%;">
+                    <button class="emotion-badge-btn active" data-emotion="explore">Explore 🌱</button>
+                    <button class="emotion-badge-btn" data-emotion="anxious">Anxious 🌧️</button>
+                    <button class="emotion-badge-btn" data-emotion="angry">Angry ⚡</button>
+                    <button class="emotion-badge-btn" data-emotion="sad">Sad 💧</button>
+                </div>
             </div>
             <div class="service-detail-text">
                 <span class="section-label reveal-text">02 · Creative Therapy</span>
@@ -436,26 +411,25 @@
     <section class="service-detail-section alt-layout theme-lavender" id="service-parenting-guidance" data-service="parenting-guidance">
         <div class="container service-detail-grid">
             <div class="service-detail-visual reveal-up">
-                <div class="book-stage upscaled">
+                <div class="book-stage upscaled" style="cursor: pointer;" id="wisdomBook">
                     <div class="book-wrap" aria-hidden="true">
-                        <div class="book-page">
-                            <div class="page-lines">
-                                <div class="page-line"></div><div class="page-line"></div>
-                                <div class="page-line"></div><div class="page-line"></div>
-                                <div class="page-line"></div>
+                        <div class="book-page left-page">
+                            <div class="book-page-content" id="bookLeftText">
+                                <strong>Co-regulation</strong>
+                                <p>Calm is contagious. Share your calm, don't join their chaos.</p>
                             </div>
                             <span class="page-icon">🌱</span>
                         </div>
                         <div class="book-spine"></div>
                         <div class="book-page right-page">
-                            <div class="page-lines">
-                                <div class="page-line"></div><div class="page-line"></div>
-                                <div class="page-line"></div><div class="page-line"></div>
-                                <div class="page-line"></div>
+                            <div class="book-page-content" id="bookRightText">
+                                <strong>Connection First</strong>
+                                <p>Seek understanding first. Listen to the feeling behind the behavior.</p>
                             </div>
                             <span class="page-icon">🤝</span>
                         </div>
                     </div>
+                    <p class="book-hint" style="position: absolute; bottom: 12px; font-size: 0.8rem; opacity: 0.7; font-style: italic; margin: 0; color: var(--text-light);">✦ Click book to flip parenting insights</p>
                 </div>
             </div>
             <div class="service-detail-text">
@@ -508,14 +482,17 @@
     <section class="service-detail-section alt-layout theme-sage" id="service-holistic-wellness" data-service="holistic-wellness">
         <div class="container service-detail-grid">
             <div class="service-detail-visual reveal-up">
-                <div class="venn-stage upscaled">
+                <div class="venn-stage upscaled" style="cursor: pointer;">
                     <div class="venn-wrap" aria-hidden="true">
-                        <div class="venn-circle venn-mind"><span class="circle-label">Mind</span></div>
-                        <div class="venn-circle venn-body"><span class="circle-label">Body</span></div>
-                        <div class="venn-circle venn-spirit"><span class="circle-label">Spirit</span></div>
-                        <div class="venn-center-glow"></div>
-                        <div class="venn-center-text"><span>Whole</span><span>Being</span></div>
+                        <div class="venn-circle venn-mind" data-venn="mind"><span class="circle-label">Mind</span></div>
+                        <div class="venn-circle venn-body" data-venn="body"><span class="circle-label">Body</span></div>
+                        <div class="venn-circle venn-spirit" data-venn="spirit"><span class="circle-label">Spirit</span></div>
+                        <div class="venn-center-glow" data-venn="center"></div>
+                        <div class="venn-center-text" data-venn="center"><span>Whole</span><span>Being</span></div>
                     </div>
+                </div>
+                <div class="venn-details-box" id="vennDetails">
+                    ✦ Hover or tap Mind, Body, or Spirit circles to see integration.
                 </div>
             </div>
             <div class="service-detail-text">
